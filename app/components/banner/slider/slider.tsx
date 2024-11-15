@@ -226,7 +226,7 @@ export default function ImageSlider(): JSX.Element {
           ></div>
         ))}
       </div> */}
-      <div className="w-full h-fit mt-36">
+      <div className="w-full h-fit mt">
         <div
           className={`absolute inset-0 transition-all  pl-10 duration-500 ease-in-out transform ${
             isAnimating
