@@ -14,8 +14,8 @@ function Banner() {
         <div className="w-fit h-fit  -space-y-6 ml-14 pt-3">
           <p className="">CREATIVE</p> <p>ENGINEERING</p> <p>EXPERIENCE</p>
         </div>
+        <Slider />
       </div>
-      <Slider />
     </div>
   );
 }
