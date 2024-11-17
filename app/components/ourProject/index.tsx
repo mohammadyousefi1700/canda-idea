@@ -23,16 +23,12 @@ const data: ProjectType[] = [
 ];
 
 function OurProject() {
-  const [isCentered, setIsCentered] = useState(false);
+  const [scrollPosition, setScrollPosition] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      const showTextDiv = document.getElementById("showText");
-      if (showTextDiv) {
-        const rect = showTextDiv.getBoundingClientRect();
-        const isInView = rect.top <= window.innerHeight / 2;
-        setIsCentered(isInView);
-      }
+      const scrollY = window.scrollY || document.documentElement.scrollTop;
+      setScrollPosition(scrollY);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -48,20 +44,21 @@ function OurProject() {
         </p>
       </div>
 
-      <div className="w-full flex">
+      <div className="w-full flex relative">
         <ArrowDown className="w-9 h-44" />
 
         <CardIntroductProduct projects={data} />
 
         <div
-          className={`absolute w-full items-end h-fit -mt-16 -space-y-40 transition-all duration-500 ${
-            isCentered
-              ? "delay-500 duration-300 transform   translate-x-[900px]"
-              : ""
-          }`}
+          className={`absolute top-1/2 lg:left-[110%] xl:left-[100%] transform -translate-x-1/2 -translate-y-1/2 transition-transform -lin duration-500`}
+          style={{
+            transform: `translate(-50%, -50%) translateX(${
+              scrollPosition > 0 ? -scrollPosition * 0.5 : scrollPosition * 0.5
+            }px)`,
+          }}
         >
           <p
-            className="text-[200px] pl-9 ml-56"
+            className="text-[200px] pl-9"
             style={{
               WebkitTextStroke: "1px gray",
               color: "transparent",
@@ -70,7 +67,7 @@ function OurProject() {
             We
           </p>
           <p
-            className="text-[200px]"
+            className="text-[200px] mb-72 -mt-40 "
             style={{
               WebkitTextStroke: "1px gray",
               color: "transparent",

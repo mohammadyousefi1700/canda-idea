@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import "./lib/fontawesome";
 
 const iranyekan = localFont({
   src: [
@@ -46,11 +47,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      {/*navbar  */}
-      <body className={`${iranyekan.variable} overflow-x-hidden antialiased`}>
-        {children}
-      </body>
+    <html id="scroll" lang="en">
+      <body>{children}</body>
     </html>
   );
 }

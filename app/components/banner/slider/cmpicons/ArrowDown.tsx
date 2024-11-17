@@ -1,9 +1,4 @@
-type Props = {
-  prop?: any;
-  className?: string;
-};
-
-const ArrowDown = (props: Props) => (
+const ArrowDown = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={32}

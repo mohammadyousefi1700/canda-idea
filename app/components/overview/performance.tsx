@@ -29,7 +29,7 @@ function Performance() {
         <p className={classpTag}>Colleaques</p>
       </div>
       <div>
-        <p className="font-bold text-[2rem] text-[#0000FF]">30</p>
+        <p className="font-bold text-[2rem] mr-44 text-[#0000FF]">30</p>
         <p className={classpTag}>Master</p>
         <p className={classpTag}>and PhD STUDENTS</p>
       </div>

@@ -1,163 +1,59 @@
-// "use client";
-
-// import React, { useState, useEffect, ReactNode } from "react";
-
-// const texts: { icons: ReactNode; title: string; description: string }[] = [
-//   {
-//     icons: <div></div>,
-//     title: "متن اول",
-//     description: "Loremdsfsdfsdfsdfsdfs",
-//   },
-//   {
-//     icons: <div></div>,
-//     title: "متن دوم",
-//     description: "Loremsdklfjsdfjlksdfj",
-//   },
-//   {
-//     icons: <div></div>,
-//     title: "متن سوم",
-//     description: "Loremsdklfjsdfjlksdfj",
-//   },
-// ];
-
-// const Slider: React.FC = () => {
-//   const [currentIndex, setCurrentIndex] = useState(0);
-
-//   useEffect(() => {
-//     const interval = setInterval(() => {
-//       setCurrentIndex((prevIndex) => (prevIndex + 1) % texts.length);
-//     }, 5000);
-//     return () => clearInterval(interval);
-//   }, []);
-
-//   return (
-//     <div className="flex justify-center items-center h-64 text-white bg-inherit">
-//       <div
-//         className={`text-2xl font-bold text-white duration-1000 ease-in-out transition-all ${
-//           currentIndex === 0 ? "opacity-100" : "opacity-0"
-//         }`}
-//       >
-//         {texts.map((item) => {
-//           return (
-//             <div className="">
-//               <div>icon title</div>
-//               <div>line and number</div>
-//               <div>content show slider</div>
-//             </div>
-//           );
-//         })}
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Slider;
-// "use client";
-// import { useState, useEffect } from "react";
-// import Image from "next/image";
-// import { StaticImageData } from "next/image";
-// import OneSlider from "./cmpicons/1recslider";
-// import ArrowDown from "./cmpicons/ArrowDown";
-// import LastNumberIcon from "./cmpicons/LastNumberIcon";
-// // import { ChevronLeft, ChevronRight } from "lucide-react";
-
-// // Interface for image data
-// interface ImageData {
-//   // src: StaticImageData;
-//   title: string;
-// }
-
-// // Image data array
-// const images: ImageData[] = [
-//   {
-//     title: "dsfsdfdsf",
-//   },
-//   {
-//     title: "seasdfd",
-//   },
-//   {
-//     title: "bgffgb",
-//   },
-// ];
-
-// export default function ImageSlider(): JSX.Element {
-//   // State to keep track of the current image index
-//   const [currentIndex, setCurrentIndex] = useState<number>(0);
-
-//   // Function to show the previous slide
-//   const prevSlide = (): void => {
-//     setCurrentIndex(
-//       (prevIndex) => (prevIndex - 1 + images.length) % images.length
-//     );
-//   };
-
-//   // Function to show the next slide
-//   const nextSlide = (): void => {
-//     setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-//   };
-
-//   useEffect(() => {
-//     const interval = setInterval(() => {
-//       nextSlide();
-//     }, 10000);
-
-//     return () => {
-//       clearInterval(interval);
-//     };
-//   }, []);
-
-//   return (
-//     <div className="relative w-full hover:not mx-auto mt-4">
-//       <div className="relative h-[460px] group ">
-//        <div className="transition-all duration-300 ease-in-out  ">
-//         {images[currentIndex].title}
-//         </div><div className=" flex flex-col">
-//           <OneSlider className="w-8 h-8  self-end mr-36" />
-//           <hr />
-//           <LastNumberIcon className="w-8 mt-2 h-8 self-end mr-36 " />
-//           <ArrowDown className="w-8 h-8 self-end mt-2 mr-36 " />
-//         </div>
-//         {/* <Image
-//           src={images[currentIndex].src}
-//           alt={`Slider Image ${currentIndex + 1}`}
-//           layout="fill"
-//           objectFit="cover"
-//           className="rounded-xl transition-all duration-500 ease-in-out cursor-pointer"
-//         /> */}
-//       </div>
-
-//       <div className="flex justify-center mt-4">
-//         {images.map((_, index) => (
-//           <div
-//             key={index}
-//             className={`h-1 w-10 mx-1 ${
-//               index === currentIndex
-//                 ? "bg-[#beff46] rounded-xl"
-//                 : "bg-gray-300 rounded-xl"
-//             } transition-all duration-500 ease-in-out`}
-//           ></div>
-//         ))}
-//       </div>
-//     </div>
-//   );
-// }
-/////////////////////////////////////////////////////////////////////
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, ReactNode } from "react";
 import OneSlider from "./cmpicons/1recslider";
 import ArrowDown from "./cmpicons/ArrowDown";
 import LastNumberIcon from "./cmpicons/LastNumberIcon";
+import ServiceIcon from "./cmpicons/serviceIcon";
+import ReSearchAndDevelopmentIcon from "./cmpicons/researchAndDeveopmentIcon";
+import IndustriesIcon from "./cmpicons/IndustriesIcon";
+import ServiceStokeIcon from "./icon2cmp/ServiceStokeIcon";
+import ReSearchAndDevelopmentStrokeIcon from "./icon2cmp/ReSearchAndDevelopmentStrokeIcon";
+import IndustriesStrokeIcon from "./icon2cmp/IndustriesStrokeIcon";
+import NumberSecondeSlider from "./cmpicons/NumberSecondeSlider";
+import TreeNumberSlider from "./cmpicons/treeNumberSlider";
 
-// Interface for image data
-interface ImageData {
-  title: string;
-}
+const texts: { icons: ReactNode; title: string; description: string }[] = [
+  {
+    icons: <ReSearchAndDevelopmentStrokeIcon className="w-fit h-fit" />,
+    title: "RESEARCH & DEVELOPMENT",
+    description:
+      "In this contemporary age, science and technology are changing magnificently second by second and being associated with it, is one of the most necessary characteristics that all companies should follow. Kanda Idea put adequate time and effort into researching cutting-edge science and developing the latest technology by several laboratories.",
+  },
+  {
+    icons: <ServiceStokeIcon className="w-fit h-fit" />,
+    title: "Services & Solutions",
+    description:
+      "Over 15 years of experience in engineering services consultancy and with the taking advantage of expert human resources, Kanda Idea provides a wide range of services and solutions and become one of the leading consultants in the region.",
+  },
+  {
+    icons: <IndustriesStrokeIcon className="w-fit h-fit" />,
+    title: "Industries",
+    description:
+      "Kanda Idea has considerable expertise in many industries and also has developed its sector of abilities field by field and it has been experienced in a wide range of territory. Kanda Idea has started its journey from Oil and Gas and Petrochemical industry and continued in GIS (Geospatial Information System) and Geomatics and now it is cruising in the Maritime and Ship-Tracking area.",
+  },
+];
 
-// Image data array
-const images: ImageData[] = [
-  { title: "عنوان اول" },
-  { title: "عنوان دوم" },
-  { title: "عنوان سوم" },
+const slider2: { icons: ReactNode }[] = [
+  {
+    icons: <ReSearchAndDevelopmentIcon className="w-fit h-fit" />,
+  },
+  {
+    icons: <ServiceIcon className="w-fit h-fit" />,
+  },
+  {
+    icons: <IndustriesIcon className="w-fit h-fit" />,
+  },
+];
+const NumberSlider: { icons: ReactNode }[] = [
+  {
+    icons: <OneSlider className="w-8 h-8 self-end mr-36" />,
+  },
+  {
+    icons: <NumberSecondeSlider className="w-8 h-8 self-end mr-36" />,
+  },
+  {
+    icons: <TreeNumberSlider className="w-8 h-8 self-end mr-36" />,
+  },
 ];
 
 export default function ImageSlider(): JSX.Element {
@@ -168,7 +64,7 @@ export default function ImageSlider(): JSX.Element {
   const nextSlide = (): void => {
     setIsAnimating(true); // Start the animation
     setTimeout(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % texts.length);
       setIsAnimating(false); // End the animation after transition
     }, 600); // Match the animation duration
   };
@@ -179,80 +75,61 @@ export default function ImageSlider(): JSX.Element {
   }, []);
 
   return (
-    <div className="relative w-full mx-auto mt-4">
-      <div className="relative  group pt-20 overflow-hidden">
-        {/* Current slide */}
+    <div className="flex flex-col w-full h-full">
+      <div className="relative w-full h-fit mt-40">
         <div
-          className={`absolute inset-0 transition-all  pl-10 duration-500 ease-in-out transform ${
+          className={`absolute  transition-all  -top-24 pl-10 duration-500 ease-in-out transform ${
             isAnimating
-              ? "translate-y-[60px] opacity-0" // Exit: Move 100px down and fade out
-              : "translate-y-0 opacity-100" // Static position
+              ? "translate-y-[20px]  opacity-0"
+              : "-translate-y-[30x] "
           }`}
-          key={`slide-${currentIndex}`}
         >
-          {images[currentIndex].title}
+          <div className="flex items-center gap-x-4">
+            {" "}
+            <div>{texts[(currentIndex + 1) % texts.length].icons}</div>
+            <h3
+              className="text-[50px]"
+              style={{
+                WebkitTextStroke: "1px gray",
+                color: "transparent",
+              }}
+            >
+              {texts[(currentIndex + 1) % texts.length].title}
+            </h3>
+          </div>
         </div>
 
-        {/* Next slide */}
-        <div
-          className={`absolute inset-0 transition-all pl-10 duration-500 ease-in-out transform ${
-            isAnimating
-              ? "translate-y-0 opacity-100" // Enter: Move to original position and fade in
-              : "-translate-y-[10px] opacity-0" // Prepare to enter from 100px above
-          }`}
-          key={`next-slide-${(currentIndex + 1) % images.length}`}
-        >
-          {images[(currentIndex + 1) % images.length].title}
-        </div>
-
-        {/* Additional icons */}
         <div className="flex flex-col">
-          <OneSlider className="w-8 h-8 self-end mr-36" />
+          {NumberSlider[currentIndex].icons}
           <hr />
           <LastNumberIcon className="w-8 mt-2 h-8 self-end mr-36" />
-          <ArrowDown className="w-8 h-8 self-end mt-2 mr-36" />
-        </div>
-      </div>
-      {/* Dots indicator */}
-      {/* <div className="flex justify-center mt-4">
-        {images.map((_, index) => (
-          <div
-            key={index}
-            className={`h-1 w-10 mx-1 ${
-              index === currentIndex
-                ? "bg-[#beff46] rounded-xl"
-                : "bg-gray-300 rounded-xl"
-            } transition-all duration-500 ease-in-out`}
-          ></div>
-        ))}
-      </div> */}
-      <div className="w-full h-fit mt">
-        <div
-          className={`absolute inset-0 transition-all  pl-10 duration-500 ease-in-out transform ${
-            isAnimating
-              ? "translate-y-[60px] opacity-0" // Exit: Move 100px down and fade out
-              : "translate-y-0 opacity-100" // Static position
-          }`}
-          key={`slide-${currentIndex}`}
-        >
-          {images[currentIndex].title}
+          <ArrowDown
+            onClick={nextSlide}
+            className="w-8 h-8 self-end mt-2 mr-36 hover:cursor-pointer"
+          />
         </div>
 
-        {/* Next slide */}
-        <div
-          className={`absolute inset-0 transition-all pl-10 duration-500 ease-in-out transform ${
-            isAnimating
-              ? "translate-y-0 opacity-100" // Enter: Move to original position and fade in
-              : "-translate-y-[10px] opacity-0" // Prepare to enter from 100px above
-          }`}
-          key={`next-slide-${(currentIndex + 1) % images.length}`}
-        >
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Error omnis
-          alias, ut itaque in vel nobis aliquam minima velit enim sunt modi ea
-          fuga voluptatum facilis distinctio cumque consectetur iusto!
-          {images[(currentIndex + 1) % images.length].title}
+        <div className="relative mt-8">
+          <div
+            className={`absolute  transition-all  -top-24 pl-10  ease-linear transform ${
+              isAnimating
+                ? "translate-x-[20px]  opacity-0"
+                : "-translate-x-[30x] "
+            }`}
+          >
+            <div className="flex  gap-x-5">
+              <div className="mt-3">{slider2[currentIndex].icons}</div>
+
+              <div>
+                <h3 className="block"> {texts[currentIndex].title} </h3>
+                <p className="text-[20px] !w-[600px]">
+                  {texts[currentIndex].description}
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>{" "}
+      </div>
     </div>
   );
 }

@@ -11,12 +11,14 @@ import Footer from "./components/footer/inde";
 
 export default function Home() {
   return (
-    <div className="w-full">
+    <div className="w-full overflow-x-hidden">
       <Banner />
       {/* OVERVIEW */}
-      <Overview />
-      {/* { OurProject  } */}
-      <OurProject />
+      <div className="pl-8">
+        <Overview />
+        {/* { OurProject  } */}
+        <OurProject />
+      </div>
       <ApplyResume />
       <Footer />
     </div>
